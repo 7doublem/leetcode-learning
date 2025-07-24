@@ -13,9 +13,7 @@ var canConstruct = function(ransomNote, magazine) {
     for (let char of ransomNote) {
         if (!magazineCount[char]) {
             return false
-        } else {
-            magazineCount[char]--
-        }
+        } magazineCount[char]--
     }
     return true
 };
