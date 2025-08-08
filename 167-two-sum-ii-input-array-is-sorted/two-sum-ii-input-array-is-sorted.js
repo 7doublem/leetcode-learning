@@ -4,15 +4,19 @@
  * @return {number[]}
  */
 var twoSum = function(numbers, target) {
-    let map = {}
+
+    let left = 0;
+    let right = numbers.length - 1
 
     for (let i = 0; i < numbers.length; i++) {
-        let complement = target - numbers[i]
-
-        if (complement in map) {
-            return [map[complement]+1, i+1]
+        if (numbers[left] + numbers[right] === target) {
+            return [left+1, right+1]
+        } else if (numbers[left]+numbers[right] < target) {
+            left++
+        } else if (numbers[left]+numbers[right] > target) {
+            right--
         }
-
-        map[numbers[i]] = i
     }
-};
+
+    return [left+1, right+1]
+}
