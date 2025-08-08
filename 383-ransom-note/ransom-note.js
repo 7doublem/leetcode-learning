@@ -10,6 +10,8 @@ var canConstruct = function(ransomNote, magazine) {
         magazineCount[char] = (magazineCount[char] || 0) + 1
     }
 
+    console.log(magazineCount)
+
     for (let char of ransomNote) {
         if (!magazineCount[char]) {
             return false
