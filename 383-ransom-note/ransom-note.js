@@ -4,18 +4,23 @@
  * @return {boolean}
  */
 var canConstruct = function(ransomNote, magazine) {
-    const magazineCount = {};
-
-    for (let char of magazine) {
-        magazineCount[char] = (magazineCount[char] || 0) + 1
+    const count = new Array(26)
+    for (let i = 0; i < 26; i++) {
+        count[i] = 0
     }
 
-    console.log(magazineCount)
+    for (let i = 0; i < magazine.length; i++) {
+        const index = magazine.charCodeAt(i) - 97
+        count[index]++
+    }
 
-    for (let char of ransomNote) {
-        if (!magazineCount[char]) {
+    for (let i = 0; i < ransomNote.length; i++) {
+        const index = ransomNote.charCodeAt(i) - 97
+        if (count[index] === 0) {
             return false
-        } magazineCount[char]--
+        }
+        count[index]--
     }
+
     return true
 };
