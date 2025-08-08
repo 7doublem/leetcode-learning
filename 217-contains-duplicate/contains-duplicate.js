@@ -7,7 +7,7 @@ var containsDuplicate = function(nums) {
 
     for (let num of nums) {
         if (num in map) return true
-        map[num] = 0
+        map[num] = true
     }
     console.log(map)
     return false
