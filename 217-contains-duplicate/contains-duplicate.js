@@ -9,6 +9,5 @@ var containsDuplicate = function(nums) {
         if (num in map) return true
         map[num] = true
     }
-    console.log(map)
     return false
 };
