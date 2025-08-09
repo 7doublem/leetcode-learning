@@ -3,18 +3,14 @@
  * @return {number}
  */
 var thirdMax = function(nums) {
-    const sorted = nums.sort((a,b) => b - a)
-    const distinct = []
+    nums.sort((a,b) => b - a)
+    let count = 1
 
-    for (let i = 0; i < sorted.length; i++) {
-        if (!distinct.includes(sorted[i])) {
-            distinct.push(sorted[i])
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== nums[i - 1]) {
+            count++
+            if (count === 3) return nums[i]
         }
     }
-    console.log(distinct)
-    if (distinct[2] !== undefined) {
-        return distinct[2]
-    } else {
-        return distinct[0]
-    }
+    return nums[0]
 };
